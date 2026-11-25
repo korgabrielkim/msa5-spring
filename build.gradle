@@ -18,7 +18,9 @@ repositories {
     mavenCentral()
 }
 
-dependencies { // 외부 라이브러리나 프레임워크를 추가하는 곳. 추가 또는 수정을 했다면 반드시 그리드를 새로 고침해 줘야 함.
+dependencies {
+// 외부 라이브러리나 프레임워크를 추가하는 곳. 추가 또는 수정을 했다면 반드시 그리드를 새로 고침해 줘야 함.
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

@@ -2,3 +2,10 @@ spring:
   application:
     name: msa5-spring
 
+  # 유효성 검사에서 에러가 발생했을 때, 에러의 상세 내용과 메세지를 볼 수 있게 설정하는 방법.
+  web:
+    error:
+      include-stacktrace: always
+      include-message: always
+      include-binding-errors: always
+
