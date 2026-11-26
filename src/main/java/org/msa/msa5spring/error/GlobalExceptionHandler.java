@@ -46,6 +46,9 @@ public class GlobalExceptionHandler {
                                                                                // != null ? 널이 아닐 때 값 : null 일때 값.
                         (existing, replacement) -> existing // 첫번째 [existing] : 해당 필드의 기존 값, 두번째 [replacement] : 새로운 값
                 ));
+
+            log.debug("\n{}\n{}","***유효성 체크 에러***",errors.toString()); // ("{1}\\n{2}",1,2) → logger의 형식, 순서에 맞춰서 들어간다고 보면됨. //
+
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(
@@ -67,7 +70,7 @@ public class GlobalExceptionHandler {
         log.debug("디버그 로깅");
         log.info("인포 로깅");
         log.warn("워닝 로깅");
-        log.error("에러 로깅");
+        log.error("에러 로깅", e);
 
         return ResponseEntity
                 .status(500)
