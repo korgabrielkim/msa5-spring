@@ -5,7 +5,17 @@ spring:
   # 유효성 검사에서 에러가 발생했을 때, 에러의 상세 내용과 메세지를 볼 수 있게 설정하는 방법.
   web:
     error:
-      include-stacktrace: always
-      include-message: always
-      include-binding-errors: always
-
+      include-stacktrace: never # 개발 환겨에서는 always를 사용하더라도 상세 정보가 넘어가면 안되기에 never로 설정
+      include-message: never
+      include-binding-errors: never
+# 로깅 작업을 하기 위한 설정.
+# 디버깅(개발자 모드)에서 콘솔로 찍히게 하는 의미.
+# error > warn > info > debug > trace
+logging:
+  file:
+      name: logs/error.log
+  level:
+    root: warn
+    org.msa.msa5spring: error # 패키지 별로 따로 주고 싶을 때 경로를 직접 지정.
+    # org.msa.msa5spring.controller : error
+debug: false #debug 모드를 true로 하면 모든 작동 상황이 구체적으로 표현됨. 운영 환경에서는 false 설정해 두고 사용하는게 맞음.

@@ -1,5 +1,6 @@
 package org.msa.msa5spring.error;
 
+import lombok.extern.slf4j.Slf4j;
 import org.msa.msa5spring.response.GlobalResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j // application.yaml에서 lombok을 추가해야함.
 @RestControllerAdvice // GlobalExceptionHandler로 사용한다고 spring boot에게 알려주는 어노테이션임.
 public class GlobalExceptionHandler {
     // 예외 처리의 단위는 메소드가 됨.
@@ -61,6 +63,12 @@ public class GlobalExceptionHandler {
     // 타입만 전송하면 비교를 못함. => Exception.class는 인스터스화가 된 객체라고 보면됨.
     public ResponseEntity<GlobalResponseDTO<Void>> handle(Exception e){
     // null을 제너릭 타입으로 지정하고 싶으면 Void를 넣어 주면 됨.
+        log.trace("트레이스 로깅");
+        log.debug("디버그 로깅");
+        log.info("인포 로깅");
+        log.warn("워닝 로깅");
+        log.error("에러 로깅");
+
         return ResponseEntity
                 .status(500)
                 .body(
