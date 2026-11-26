@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 // 해당 클래스가 restcontroller 역할을 하는 클래스라고 알려주는 명령어.
 // 해당 어노테이션이 있어야지 정상적인 작동을 한다고 함.
-@RequestMapping("/api") // ← 프리픽스 경로를 주는 것임.(해당 클래스에 작업하는 것은 모두 /users가 기본으로 잡힘)
+@RequestMapping("/api") // ← 프리픽스 경로를 주는 것임.(해당 클래스에 작업하는 것은 모두 / api가 기본으로 잡힘)
 public class RequestMappingController {
     // 유저가 유저의 정보 조회를 요청했을 때(get/users)
     @GetMapping
